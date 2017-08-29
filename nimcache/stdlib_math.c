@@ -3,7 +3,7 @@
 /* The generated code is subject to the original license. */
 /* Compiled for: Windows, amd64, gcc */
 /* Command for C compiler:
-   C:\nim\dist\mingw64\bin\gcc.exe -c  -w  -IC:\nim\lib -o C:\Users\Arham\Documents\Projects\sim2\nimcache\stdlib_math.o C:\Users\Arham\Documents\Projects\sim2\nimcache\stdlib_math.c */
+   C:\nim\dist\mingw64\bin\gcc.exe -c  -w  -IC:\nim\lib -o C:\Users\Arham\Documents\Projects\simtest\nimcache\stdlib_math.o C:\Users\Arham\Documents\Projects\simtest\nimcache\stdlib_math.c */
 #define NIM_NEW_MANGLING_RULES
 #define NIM_INTBITS 64
 

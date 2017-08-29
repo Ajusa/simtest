@@ -3,7 +3,7 @@
 /* The generated code is subject to the original license. */
 /* Compiled for: Windows, amd64, gcc */
 /* Command for C compiler:
-   C:\nim\dist\mingw64\bin\gcc.exe -c  -w  -IC:\nim\lib -o C:\Users\Arham\Documents\Projects\sim2\nimcache\stdlib_system.o C:\Users\Arham\Documents\Projects\sim2\nimcache\stdlib_system.c */
+   C:\nim\dist\mingw64\bin\gcc.exe -c  -w  -IC:\nim\lib -o C:\Users\Arham\Documents\Projects\simtest\nimcache\stdlib_system.o C:\Users\Arham\Documents\Projects\simtest\nimcache\stdlib_system.c */
 #define NIM_NEW_MANGLING_RULES
 #define NIM_INTBITS 64
 
@@ -75,6 +75,7 @@ typedef struct LibraryError_F9bh3YCIGu9a7lVBdm5Z1UVw LibraryError_F9bh3YCIGu9a7l
 typedef struct ValueError_Gi06FkNeykJn7mrqRZYrkA ValueError_Gi06FkNeykJn7mrqRZYrkA;
 typedef struct TY_boJ9argmCD9bXSmLW89aEvVWA TY_boJ9argmCD9bXSmLW89aEvVWA;
 typedef struct TY_1JlHotiCdrGmGQRjzmOgQg TY_1JlHotiCdrGmGQRjzmOgQg;
+typedef struct TY_Zj5xKXgsXnI4n4hPS6nACA TY_Zj5xKXgsXnI4n4hPS6nACA;
 typedef N_NIMCALL_PTR(NIM_BOOL, TY_hgOQFBQi19biNdOUUkFOOxA) (Exception* e);
 typedef N_NIMCALL_PTR(void, TY_T4eqaYlFJYZUv9aG9b1TV0bQ) (void);
 struct  TGenericSeq  {
@@ -387,6 +388,10 @@ struct TY_sM4lkSb7zS6F7OVMvW9cffQ {
 struct TY_boJ9argmCD9bXSmLW89aEvVWA {
   TGenericSeq Sup;
   TY_1JlHotiCdrGmGQRjzmOgQg data[SEQ_DECL_SIZE];
+};
+struct TY_Zj5xKXgsXnI4n4hPS6nACA {
+  TGenericSeq Sup;
+  NF data[SEQ_DECL_SIZE];
 };
 N_NIMCALL(NI, min_8Eruo47qvrfENwO9aWPZfBQ)(NI x, NI y);
 N_NIMCALL(NI8, min_ZXd2BEFFSPHzWn3ruhQSpw)(NI8 x, NI8 y);
@@ -838,6 +843,7 @@ static N_INLINE(NIM_BOOL, eqeq__9ccNWqrTIE9bcAqE2Q0ro7zgsystem)(NCSTRING x, NCST
 static N_NIMCALL(void, Marker_TY_TLVXkEbYONqsuh3EtIf38A)(void* p, NI op);
 static N_NIMCALL(void, Marker_TY_yCEN9anxCD6mzBxGjuaRBdg)(void* p, NI op);
 static N_NIMCALL(void, Marker_TY_boJ9argmCD9bXSmLW89aEvVWA)(void* p, NI op);
+static N_NIMCALL(void, Marker_TY_Zj5xKXgsXnI4n4hPS6nACA)(void* p, NI op);
 NIM_BOOL nimvm_IAxmsqnME4Jmed24hOgrFQ;
 NI nim_program_result;
 TY_hgOQFBQi19biNdOUUkFOOxA globalRaiseHook_JbO1ti4ULxrw54m4zNPbpA;
@@ -912,6 +918,7 @@ TNimType NTI_yCEN9anxCD6mzBxGjuaRBdg_;
 TNimType NTI_w9bl9a1ul9ctRJWiMl9cNnIMvg_;
 extern TNimType NTI_1JlHotiCdrGmGQRjzmOgQg_;
 TNimType NTI_boJ9argmCD9bXSmLW89aEvVWA_;
+TNimType NTI_Zj5xKXgsXnI4n4hPS6nACA_;
 STRING_LITERAL(TM_Q5wkpxktOdTGvlSRo9bzt9aw_3, "", 0);
 STRING_LITERAL(TM_Q5wkpxktOdTGvlSRo9bzt9aw_4, "out of memory", 13);
 STRING_LITERAL(TM_Q5wkpxktOdTGvlSRo9bzt9aw_5, "No stack traceback available\015\012", 30);
@@ -12746,6 +12753,24 @@ N_NIMCALL(TY_boJ9argmCD9bXSmLW89aEvVWA*, newSeq_t7ymgOjzhuSqFhEoTzkv8A)(NI len) 
 	popFrame();
 	return result;
 }
+static N_NIMCALL(void, Marker_TY_Zj5xKXgsXnI4n4hPS6nACA)(void* p, NI op) {
+	TY_Zj5xKXgsXnI4n4hPS6nACA* a;
+	NI T1_;
+	a = (TY_Zj5xKXgsXnI4n4hPS6nACA*)p;
+	T1_ = (NI)0;
+	for (T1_ = 0; T1_ < a->Sup.len; T1_++) {
+	}
+}
+
+N_NIMCALL(TY_Zj5xKXgsXnI4n4hPS6nACA*, newSeq_QEg0mebvlEuej5bmGcaclQ)(NI len) {
+	TY_Zj5xKXgsXnI4n4hPS6nACA* result;
+	nimfr_("newSeq", "system.nim")
+	result = (TY_Zj5xKXgsXnI4n4hPS6nACA*)0;
+	nimln_(696, "system.nim");
+	result = (TY_Zj5xKXgsXnI4n4hPS6nACA*) newSeq((&NTI_Zj5xKXgsXnI4n4hPS6nACA_), len);
+	popFrame();
+	return result;
+}
 NIM_EXTERNC N_NOINLINE(void, systemInit000)(void) {
 	TNimType T1_;
 	int T2_;
@@ -13059,5 +13084,10 @@ NTI_boJ9argmCD9bXSmLW89aEvVWA_.kind = 24;
 NTI_boJ9argmCD9bXSmLW89aEvVWA_.base = (&NTI_1JlHotiCdrGmGQRjzmOgQg_);
 NTI_boJ9argmCD9bXSmLW89aEvVWA_.flags = 2;
 NTI_boJ9argmCD9bXSmLW89aEvVWA_.marker = Marker_TY_boJ9argmCD9bXSmLW89aEvVWA;
+NTI_Zj5xKXgsXnI4n4hPS6nACA_.size = sizeof(TY_Zj5xKXgsXnI4n4hPS6nACA*);
+NTI_Zj5xKXgsXnI4n4hPS6nACA_.kind = 24;
+NTI_Zj5xKXgsXnI4n4hPS6nACA_.base = (&NTI_w9bl9a1ul9ctRJWiMl9cNnIMvg_);
+NTI_Zj5xKXgsXnI4n4hPS6nACA_.flags = 2;
+NTI_Zj5xKXgsXnI4n4hPS6nACA_.marker = Marker_TY_Zj5xKXgsXnI4n4hPS6nACA;
 }
 

@@ -1,11 +1,5 @@
 import math, strutils, times
 type PhaseSpace = tuple[width: float, height: float, VzIntDist: float, zIntDist: float, chirp: float, b: float, totalPulseEnergy: float, intensityRatio: float]
-proc exp1(y: float): float = 
-    var x = y
-    x = 1.0 + x / 256.0;
-    x *= x; x *= x; x *= x; x *= x;
-    x *= x; x *= x; x *= x; x *= x;
-    return x;
 
 proc recombine(spaces: seq[PhaseSpace]): PhaseSpace = 
     var space: PhaseSpace
@@ -35,17 +29,20 @@ proc getSplitIntensityRatio(space: PhaseSpace, accuracy: float, numSections: flo
             ySearchUB += 1;
         while(y < ySearchUB-0.0001):
             while(x < xSearchUB):
-                intensityRatio += 112*accuracy*exp1((-1*x*x/(2*hWidthsq))-((y-space.chirp*x)*(y-space.chirp*x)/(2*VzIntDistsq)))/(2*PI*(hWidthsq*VzIntDistsq));
+                intensityRatio += 112*accuracy*exp((-1*x*x/(2*hWidthsq))-((y-space.chirp*x)*(y-space.chirp*x)/(2*VzIntDistsq)))/(2*PI*(hWidthsq*VzIntDistsq));
                 x += 112;
             y += accuracy;
             x = xSearchLB;
         return intensityRatio*5000;     
 proc split(s: PhaseSpace, spaces:int): seq[PhaseSpace] =
         var phaseSpaces = newSeq[PhaseSpace](spaces)
-        var spacesD: float = spaces.float
+        var ratios = newSeq[float](spaces)
+        var spacesD: float = 1/spaces.float
+        for i, ratio in ratios:
+            ratios[i] = s.getSplitIntensityRatio(1005*spacesD, spaces.float, i.float, s.height, s.width);
         for i, space in phaseSpaces:
-            var intensityRatio = getSplitIntensityRatio(s, 1005/spacesD, spaces.float, i.float, s.height, s.width);
-            phaseSpaces[i] = ((s.height/s.chirp)/spacesD, s.height/spacesD, s.VzIntDist, s.zIntDist, s.chirp, s.b, s.totalPulseEnergy*intensityRatio, intensityRatio);
+            var intensityRatio = ratios[i]
+            phaseSpaces[i] = ((s.height/s.chirp)*spacesD, s.height*spacesD, s.VzIntDist, s.zIntDist, s.chirp, s.b, s.totalPulseEnergy*intensityRatio, intensityRatio);
         return phaseSpaces
 var initialPulse: PhaseSpace = (100.0,86.6,50.0,50.0,0.866,0.866, 100.0, 1.0)
 echo "How many splits?"
