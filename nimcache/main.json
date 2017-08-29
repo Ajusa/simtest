@@ -1,0 +1,16 @@
+{"compile":[
+["C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\main.c", "C:\\nim\\dist\\mingw64\\bin\\gcc.exe -c  -w  -IC:\\nim\\lib -o C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\main.o C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\main.c"],
+],
+"link":[
+"C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\main.o",
+"C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\stdlib_system.o",
+"C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\stdlib_math.o",
+"C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\stdlib_strutils.o",
+"C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\stdlib_times.o",
+"C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\stdlib_parseutils.o",
+"C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\stdlib_algorithm.o",
+"C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\stdlib_winlean.o",
+"C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\stdlib_dynlib.o"
+],
+"linkcmd": "C:\\nim\\dist\\mingw64\\bin\\gcc.exe   -o C:\\Users\\Arham\\Documents\\Projects\\sim2\\main.exe  C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\main.o C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\stdlib_system.o C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\stdlib_math.o C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\stdlib_strutils.o C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\stdlib_times.o C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\stdlib_parseutils.o C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\stdlib_algorithm.o C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\stdlib_winlean.o C:\\Users\\Arham\\Documents\\Projects\\sim2\\nimcache\\stdlib_dynlib.o    "
+}
