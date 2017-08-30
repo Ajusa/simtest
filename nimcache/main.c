@@ -8,18 +8,15 @@
 #define NIM_INTBITS 64
 
 #include "nimbase.h"
-#include <stdio.h>
-#include <math.h>
 #include <string.h>
+#include <stdio.h>
 #undef linux
 #undef near
 typedef struct TY_1JlHotiCdrGmGQRjzmOgQg TY_1JlHotiCdrGmGQRjzmOgQg;
-typedef struct TGenericSeq TGenericSeq;
-typedef struct NimStringDesc NimStringDesc;
 typedef struct TY_boJ9argmCD9bXSmLW89aEvVWA TY_boJ9argmCD9bXSmLW89aEvVWA;
+typedef struct TGenericSeq TGenericSeq;
 typedef struct TNimType TNimType;
 typedef struct TNimNode TNimNode;
-typedef struct TY_Zj5xKXgsXnI4n4hPS6nACA TY_Zj5xKXgsXnI4n4hPS6nACA;
 typedef struct Cell_1zcF9cV8XIAtbN8h5HRUB8g Cell_1zcF9cV8XIAtbN8h5HRUB8g;
 typedef struct CellSeq_Axo1XVm9aaQueTOldv8le5w CellSeq_Axo1XVm9aaQueTOldv8le5w;
 typedef struct GcHeap_1TRH1TZMaVZTnLNcIHuNFQ GcHeap_1TRH1TZMaVZTnLNcIHuNFQ;
@@ -36,6 +33,7 @@ typedef struct TY_ujsjpB2O9cjj3uDHsXbnSzg TY_ujsjpB2O9cjj3uDHsXbnSzg;
 typedef struct GcStat_0RwLoVBHZPfUAcLczmfQAg GcStat_0RwLoVBHZPfUAcLczmfQAg;
 typedef struct CellSet_jG87P0AI9aZtss9ccTYBIISQ CellSet_jG87P0AI9aZtss9ccTYBIISQ;
 typedef struct PageDesc_fublkgIY4LG3mT51LU2WHg PageDesc_fublkgIY4LG3mT51LU2WHg;
+typedef struct NimStringDesc NimStringDesc;
 typedef struct BaseChunk_Sdq7WpT6qAH858F5ZEdG3w BaseChunk_Sdq7WpT6qAH858F5ZEdG3w;
 typedef struct FreeCell_u6M5LHprqzkn9axr04yg9bGQ FreeCell_u6M5LHprqzkn9axr04yg9bGQ;
 struct TY_1JlHotiCdrGmGQRjzmOgQg {
@@ -51,10 +49,6 @@ NF Field7;
 struct  TGenericSeq  {
 NI len;
 NI reserved;
-};
-struct  NimStringDesc  {
-  TGenericSeq Sup;
-NIM_CHAR data[SEQ_DECL_SIZE];
 };
 typedef NU8 TNimKind_jIBKr1ejBgsfM33Kxw4j7A;
 typedef NU8 TNimTypeFlag_v8QUszD1sWlSIWZz7mC4bQ_Set;
@@ -162,6 +156,10 @@ GcStat_0RwLoVBHZPfUAcLczmfQAg stat;
 CellSet_jG87P0AI9aZtss9ccTYBIISQ marked;
 CellSeq_Axo1XVm9aaQueTOldv8le5w additionalRoots;
 };
+struct  NimStringDesc  {
+  TGenericSeq Sup;
+NIM_CHAR data[SEQ_DECL_SIZE];
+};
 struct  BaseChunk_Sdq7WpT6qAH858F5ZEdG3w  {
 NI prevSize;
 NI size;
@@ -205,22 +203,17 @@ struct TY_boJ9argmCD9bXSmLW89aEvVWA {
   TGenericSeq Sup;
   TY_1JlHotiCdrGmGQRjzmOgQg data[SEQ_DECL_SIZE];
 };
-struct TY_Zj5xKXgsXnI4n4hPS6nACA {
-  TGenericSeq Sup;
-  NF data[SEQ_DECL_SIZE];
-};
-N_NIMCALL(NI, nsuParseInt)(NimStringDesc* s);
-N_NIMCALL(NimStringDesc*, readLine_fPRnXwDTqtynUYGl4OixAg)(FILE* f);
 N_NIMCALL(NF, ntepochTime)(void);
 static N_NIMCALL(void, Marker_TY_boJ9argmCD9bXSmLW89aEvVWA)(void* p, NI op);
 N_NIMCALL(void, nimGCvisit)(void* d, NI op);
-static N_NIMCALL(void, TM_V45tF8B8NBcxFcjfe7lhBw_5)(void);
+static N_NIMCALL(void, TM_V45tF8B8NBcxFcjfe7lhBw_4)(void);
 N_NIMCALL(void, nimRegisterGlobalMarker)(TY_T4eqaYlFJYZUv9aG9b1TV0bQ markerProc);
 N_NIMCALL(TY_boJ9argmCD9bXSmLW89aEvVWA*, split_sh7rEjxMzqlYXVBBkoyzdQ)(TY_1JlHotiCdrGmGQRjzmOgQg* s, NI spaces);
 N_NIMCALL(TY_boJ9argmCD9bXSmLW89aEvVWA*, newSeq_t7ymgOjzhuSqFhEoTzkv8A)(NI len);
-N_NIMCALL(TY_Zj5xKXgsXnI4n4hPS6nACA*, newSeq_QEg0mebvlEuej5bmGcaclQ)(NI len);
 N_NIMCALL(NF, getSplitIntensityRatio_kURSCqblShcNexe4T9cvN7A)(TY_1JlHotiCdrGmGQRjzmOgQg* space, NF accuracy, NF numSections, NF sectionNum, NF height, NF width);
 static N_INLINE(void, pluseq__7kHiltrvRlcg6wSYR3CxAwmain)(NF* x, NF y);
+N_NIMCALL(NF, exp1_GzHU3IlbBDrraj6XQWPqjA)(NF y);
+static N_INLINE(void, stareq__7kHiltrvRlcg6wSYR3CxAw_2main)(NF* x, NF y);
 N_NIMCALL(void, genericSeqAssign)(void* dest, void* src, TNimType* mt);
 static N_INLINE(void, asgnRefNoCycle)(void** dest, void* src);
 static N_INLINE(Cell_1zcF9cV8XIAtbN8h5HRUB8g*, usrToCell_yB9aH5WIlwd0xkYrcdPeXrQsystem)(void* usr);
@@ -228,7 +221,7 @@ static N_INLINE(void, rtlAddZCT_MV4BBk6J1qu70IbBxwEn4w_2system)(Cell_1zcF9cV8XIA
 N_NOINLINE(void, addZCT_fCDI7oO1NNVXXURtxSzsRw)(CellSeq_Axo1XVm9aaQueTOldv8le5w* s, Cell_1zcF9cV8XIAtbN8h5HRUB8g* c);
 N_NIMCALL(TY_1JlHotiCdrGmGQRjzmOgQg, recombine_47CuNFdfkBeDuYDZs2dAsQ)(TY_boJ9argmCD9bXSmLW89aEvVWA* spaces);
 N_NIMCALL(NimStringDesc*, nimFloatToStr)(NF f);
-static N_NIMCALL(void, TM_V45tF8B8NBcxFcjfe7lhBw_9)(void);
+N_NIMCALL(NimStringDesc*, readLine_fPRnXwDTqtynUYGl4OixAg)(FILE* f);
 static N_INLINE(void, initStackBottomWith)(void* locals);
 N_NOINLINE(void, setStackBottom)(void* theStackBottom);
 NIM_EXTERNC N_NOINLINE(void, systemInit000)(void);
@@ -250,15 +243,12 @@ NIM_EXTERNC N_NOINLINE(void, stdlib_timesDatInit000)(void);
 NIM_EXTERNC N_NOINLINE(void, NimMainModule)(void);
 NIM_EXTERNC N_NOINLINE(void, mainDatInit000)(void);
 TY_1JlHotiCdrGmGQRjzmOgQg initialPulse_9bGgafXkXEVmojQfEeJBoiw;
-NI spl_3xXVQt46ZjgYdpgVC4ebuQ;
 NF time1_3dFZBfDyR5LCVb5lgcsuDg;
 TY_boJ9argmCD9bXSmLW89aEvVWA* spaces_1Bhq9ac7p1SppWfT38rlBNg;
 TNimType NTI_1JlHotiCdrGmGQRjzmOgQg_;
 extern TNimType NTI_w9bl9a1ul9ctRJWiMl9cNnIMvg_;
 TNimType NTI_boJ9argmCD9bXSmLW89aEvVWA_;
 extern GcHeap_1TRH1TZMaVZTnLNcIHuNFQ gch_IcYaEuuWivYAS86vFMTS3Q;
-NimStringDesc* name_heOwHj0JR4YxDsRrTxFmkA;
-extern TNimType NTI_77mFvmsOLKik79ci2hXkHEg_;
 NIM_CONST TY_1JlHotiCdrGmGQRjzmOgQg TM_V45tF8B8NBcxFcjfe7lhBw_2 = {1.0000000000000000e+002,
 8.6599999999999994e+001,
 5.0000000000000000e+001,
@@ -268,10 +258,9 @@ NIM_CONST TY_1JlHotiCdrGmGQRjzmOgQg TM_V45tF8B8NBcxFcjfe7lhBw_2 = {1.00000000000
 1.0000000000000000e+002,
 1.0000000000000000e+000}
 ;
-STRING_LITERAL(TM_V45tF8B8NBcxFcjfe7lhBw_3, "How many splits\?", 16);
-STRING_LITERAL(TM_V45tF8B8NBcxFcjfe7lhBw_6, "Took ", 5);
-STRING_LITERAL(TM_V45tF8B8NBcxFcjfe7lhBw_7, " milliseconds", 13);
-STRING_LITERAL(TM_V45tF8B8NBcxFcjfe7lhBw_8, "Push enter to continue...", 25);
+STRING_LITERAL(TM_V45tF8B8NBcxFcjfe7lhBw_5, "Took ", 5);
+STRING_LITERAL(TM_V45tF8B8NBcxFcjfe7lhBw_6, " milliseconds", 13);
+STRING_LITERAL(TM_V45tF8B8NBcxFcjfe7lhBw_7, "Push enter to continue...", 25);
 static N_NIMCALL(void, Marker_TY_boJ9argmCD9bXSmLW89aEvVWA)(void* p, NI op) {
 	TY_boJ9argmCD9bXSmLW89aEvVWA* a;
 	NI T1_;
@@ -280,12 +269,36 @@ static N_NIMCALL(void, Marker_TY_boJ9argmCD9bXSmLW89aEvVWA)(void* p, NI op) {
 	for (T1_ = 0; T1_ < a->Sup.len; T1_++) {
 	}
 }
-static N_NIMCALL(void, TM_V45tF8B8NBcxFcjfe7lhBw_5)(void) {
+static N_NIMCALL(void, TM_V45tF8B8NBcxFcjfe7lhBw_4)(void) {
 	nimGCvisit((void*)spaces_1Bhq9ac7p1SppWfT38rlBNg, 0);
 }
 
 static N_INLINE(void, pluseq__7kHiltrvRlcg6wSYR3CxAwmain)(NF* x, NF y) {
 	(*x) = ((NF)((*x)) + (NF)(y));
+}
+
+static N_INLINE(void, stareq__7kHiltrvRlcg6wSYR3CxAw_2main)(NF* x, NF y) {
+	(*x) = ((NF)((*x)) * (NF)(y));
+}
+
+N_NIMCALL(NF, exp1_GzHU3IlbBDrraj6XQWPqjA)(NF y) {
+	NF result;
+	NF x;
+{	result = (NF)0;
+	x = y;
+	x = ((NF)(1.0000000000000000e+000) + (NF)(((NF)(x) / (NF)(2.5600000000000000e+002))));
+	stareq__7kHiltrvRlcg6wSYR3CxAw_2main((&x), x);
+	stareq__7kHiltrvRlcg6wSYR3CxAw_2main((&x), x);
+	stareq__7kHiltrvRlcg6wSYR3CxAw_2main((&x), x);
+	stareq__7kHiltrvRlcg6wSYR3CxAw_2main((&x), x);
+	stareq__7kHiltrvRlcg6wSYR3CxAw_2main((&x), x);
+	stareq__7kHiltrvRlcg6wSYR3CxAw_2main((&x), x);
+	stareq__7kHiltrvRlcg6wSYR3CxAw_2main((&x), x);
+	stareq__7kHiltrvRlcg6wSYR3CxAw_2main((&x), x);
+	result = x;
+	goto BeforeRet_;
+	}BeforeRet_: ;
+	return result;
 }
 
 N_NIMCALL(NF, getSplitIntensityRatio_kURSCqblShcNexe4T9cvN7A)(TY_1JlHotiCdrGmGQRjzmOgQg* space, NF accuracy, NF numSections, NF sectionNum, NF height, NF width) {
@@ -322,7 +335,7 @@ N_NIMCALL(NF, getSplitIntensityRatio_kURSCqblShcNexe4T9cvN7A)(TY_1JlHotiCdrGmGQR
 					NF T9_;
 					if (!(x < xSearchUB)) goto LA8;
 					T9_ = (NF)0;
-					T9_ = exp(((NF)(((NF)(((NF)(((NF)(-1.0000000000000000e+000) * (NF)(x))) * (NF)(x))) / (NF)(((NF)(2.0000000000000000e+000) * (NF)(hWidthsq))))) - (NF)(((NF)(((NF)(((NF)(y) - (NF)(((NF)((*space).Field4) * (NF)(x))))) * (NF)(((NF)(y) - (NF)(((NF)((*space).Field4) * (NF)(x))))))) / (NF)(((NF)(2.0000000000000000e+000) * (NF)(VzIntDistsq)))))));
+					T9_ = exp1_GzHU3IlbBDrraj6XQWPqjA(((NF)(((NF)(((NF)(((NF)(-1.0000000000000000e+000) * (NF)(x))) * (NF)(x))) / (NF)(((NF)(2.0000000000000000e+000) * (NF)(hWidthsq))))) - (NF)(((NF)(((NF)(((NF)(y) - (NF)(((NF)((*space).Field4) * (NF)(x))))) * (NF)(((NF)(y) - (NF)(((NF)((*space).Field4) * (NF)(x))))))) / (NF)(((NF)(2.0000000000000000e+000) * (NF)(VzIntDistsq)))))));
 					pluseq__7kHiltrvRlcg6wSYR3CxAwmain((&intensityRatio), ((NF)(((NF)(((NF)(1.1200000000000000e+002) * (NF)(accuracy))) * (NF)(T9_))) / (NF)(((NF)(6.2831853071795862e+000) * (NF)(((NF)(hWidthsq) * (NF)(VzIntDistsq)))))));
 					pluseq__7kHiltrvRlcg6wSYR3CxAwmain((&x), 1.1200000000000000e+002);
 				} LA8: ;
@@ -340,53 +353,31 @@ N_NIMCALL(NF, getSplitIntensityRatio_kURSCqblShcNexe4T9cvN7A)(TY_1JlHotiCdrGmGQR
 N_NIMCALL(TY_boJ9argmCD9bXSmLW89aEvVWA*, split_sh7rEjxMzqlYXVBBkoyzdQ)(TY_1JlHotiCdrGmGQRjzmOgQg* s, NI spaces) {
 	TY_boJ9argmCD9bXSmLW89aEvVWA* result;
 	TY_boJ9argmCD9bXSmLW89aEvVWA* phaseSpaces;
-	TY_Zj5xKXgsXnI4n4hPS6nACA* ratios;
 	NF spacesD;
 {	result = (TY_boJ9argmCD9bXSmLW89aEvVWA*)0;
 	phaseSpaces = newSeq_t7ymgOjzhuSqFhEoTzkv8A(((NI) (spaces)));
-	ratios = newSeq_QEg0mebvlEuej5bmGcaclQ(((NI) (spaces)));
 	spacesD = ((NF)(1.0000000000000000e+000) / (NF)(((NF) (spaces))));
 	{
 		NI i;
-		NF ratio;
-		NI i_2;
+		NI res;
 		i = (NI)0;
-		ratio = (NF)0;
-		i_2 = ((NI) 0);
-		{
-			while (1) {
-				if (!(i_2 < (ratios ? ratios->Sup.len : 0))) goto LA3;
-				i = i_2;
-				ratio = ratios->data[i_2];
-				ratios->data[i] = getSplitIntensityRatio_kURSCqblShcNexe4T9cvN7A(s, ((NF)(1.0050000000000000e+003) * (NF)(spacesD)), ((NF) (spaces)), ((NF) (i)), (*s).Field1, (*s).Field0);
-				i_2 += ((NI) 1);
-			} LA3: ;
-		}
-	}
-	{
-		NI i_3;
-		TY_1JlHotiCdrGmGQRjzmOgQg space;
-		NI i_4;
-		i_3 = (NI)0;
-		memset((void*)(&space), 0, sizeof(space));
-		i_4 = ((NI) 0);
+		res = ((NI) 0);
 		{
 			while (1) {
 				NF intensityRatio;
-				if (!(i_4 < (phaseSpaces ? phaseSpaces->Sup.len : 0))) goto LA6;
-				i_3 = i_4;
-				space = phaseSpaces->data[i_4];
-				intensityRatio = ratios->data[i_3];
-				phaseSpaces->data[i_3].Field0 = ((NF)(((NF)((*s).Field1) / (NF)((*s).Field4))) * (NF)(spacesD));
-				phaseSpaces->data[i_3].Field1 = ((NF)((*s).Field1) * (NF)(spacesD));
-				phaseSpaces->data[i_3].Field2 = (*s).Field2;
-				phaseSpaces->data[i_3].Field3 = (*s).Field3;
-				phaseSpaces->data[i_3].Field4 = (*s).Field4;
-				phaseSpaces->data[i_3].Field5 = (*s).Field5;
-				phaseSpaces->data[i_3].Field6 = ((NF)((*s).Field6) * (NF)(intensityRatio));
-				phaseSpaces->data[i_3].Field7 = intensityRatio;
-				i_4 += ((NI) 1);
-			} LA6: ;
+				if (!(res <= spaces)) goto LA3;
+				i = res;
+				intensityRatio = getSplitIntensityRatio_kURSCqblShcNexe4T9cvN7A(s, ((NF)(1.0050000000000000e+003) * (NF)(spacesD)), ((NF) (spaces)), ((NF) (i)), (*s).Field1, (*s).Field0);
+				phaseSpaces->data[i].Field0 = ((NF)(((NF)((*s).Field1) / (NF)((*s).Field4))) * (NF)(spacesD));
+				phaseSpaces->data[i].Field1 = ((NF)((*s).Field1) * (NF)(spacesD));
+				phaseSpaces->data[i].Field2 = (*s).Field2;
+				phaseSpaces->data[i].Field3 = (*s).Field3;
+				phaseSpaces->data[i].Field4 = (*s).Field4;
+				phaseSpaces->data[i].Field5 = (*s).Field5;
+				phaseSpaces->data[i].Field6 = ((NF)((*s).Field6) * (NF)(intensityRatio));
+				phaseSpaces->data[i].Field7 = intensityRatio;
+				res += ((NI) 1);
+			} LA3: ;
 		}
 	}
 	genericSeqAssign((&result), phaseSpaces, (&NTI_boJ9argmCD9bXSmLW89aEvVWA_));
@@ -462,9 +453,6 @@ N_NIMCALL(TY_1JlHotiCdrGmGQRjzmOgQg, recombine_47CuNFdfkBeDuYDZs2dAsQ)(TY_boJ9ar
 	}BeforeRet_: ;
 	return result;
 }
-static N_NIMCALL(void, TM_V45tF8B8NBcxFcjfe7lhBw_9)(void) {
-	nimGCvisit((void*)name_heOwHj0JR4YxDsRrTxFmkA, 0);
-}
 
 static N_INLINE(void, initStackBottomWith)(void* locals) {
 	setStackBottom(locals);
@@ -520,85 +508,80 @@ int main(int argc, char** args, char** env) {
 }
 
 NIM_EXTERNC N_NOINLINE(void, NimMainModule)(void) {
-	NimStringDesc* T1_;
-	TY_1JlHotiCdrGmGQRjzmOgQg T2_;
-	NimStringDesc* T3_;
-	NF T4_;
+	TY_1JlHotiCdrGmGQRjzmOgQg T1_;
+	NimStringDesc* T2_;
+	NF T3_;
+	NimStringDesc* T4_;
 	NimStringDesc* T5_;
-nimRegisterGlobalMarker(TM_V45tF8B8NBcxFcjfe7lhBw_5);
-nimRegisterGlobalMarker(TM_V45tF8B8NBcxFcjfe7lhBw_9);
+nimRegisterGlobalMarker(TM_V45tF8B8NBcxFcjfe7lhBw_4);
 	initialPulse_9bGgafXkXEVmojQfEeJBoiw = TM_V45tF8B8NBcxFcjfe7lhBw_2;
-	printf("%s\015\012", ((NimStringDesc*) &TM_V45tF8B8NBcxFcjfe7lhBw_3)? (((NimStringDesc*) &TM_V45tF8B8NBcxFcjfe7lhBw_3))->data:"nil");
-	fflush(stdout);
-	T1_ = (NimStringDesc*)0;
-	T1_ = readLine_fPRnXwDTqtynUYGl4OixAg(stdin);
-	spl_3xXVQt46ZjgYdpgVC4ebuQ = nsuParseInt(T1_);
 	time1_3dFZBfDyR5LCVb5lgcsuDg = ntepochTime();
-	asgnRefNoCycle((void**) (&spaces_1Bhq9ac7p1SppWfT38rlBNg), split_sh7rEjxMzqlYXVBBkoyzdQ((&initialPulse_9bGgafXkXEVmojQfEeJBoiw), spl_3xXVQt46ZjgYdpgVC4ebuQ));
-	T2_ = recombine_47CuNFdfkBeDuYDZs2dAsQ(spaces_1Bhq9ac7p1SppWfT38rlBNg);
-	T3_ = (NimStringDesc*)0;
-	T3_ = nimFloatToStr(T2_.Field6);
-	printf("%s\015\012", T3_? (T3_)->data:"nil");
+	asgnRefNoCycle((void**) (&spaces_1Bhq9ac7p1SppWfT38rlBNg), split_sh7rEjxMzqlYXVBBkoyzdQ((&initialPulse_9bGgafXkXEVmojQfEeJBoiw), ((NI) 1000000)));
+	T1_ = recombine_47CuNFdfkBeDuYDZs2dAsQ(spaces_1Bhq9ac7p1SppWfT38rlBNg);
+	T2_ = (NimStringDesc*)0;
+	T2_ = nimFloatToStr(T1_.Field6);
+	printf("%s\015\012", T2_? (T2_)->data:"nil");
 	fflush(stdout);
-	T4_ = (NF)0;
-	T4_ = ntepochTime();
+	T3_ = (NF)0;
+	T3_ = ntepochTime();
+	T4_ = (NimStringDesc*)0;
+	T4_ = nimFloatToStr(((NF)(((NF)(T3_) - (NF)(time1_3dFZBfDyR5LCVb5lgcsuDg))) * (NF)(1.0000000000000000e+003)));
+	printf("%s%s%s\015\012", ((NimStringDesc*) &TM_V45tF8B8NBcxFcjfe7lhBw_5)? (((NimStringDesc*) &TM_V45tF8B8NBcxFcjfe7lhBw_5))->data:"nil", T4_? (T4_)->data:"nil", ((NimStringDesc*) &TM_V45tF8B8NBcxFcjfe7lhBw_6)? (((NimStringDesc*) &TM_V45tF8B8NBcxFcjfe7lhBw_6))->data:"nil");
+	fflush(stdout);
+	printf("%s\015\012", ((NimStringDesc*) &TM_V45tF8B8NBcxFcjfe7lhBw_7)? (((NimStringDesc*) &TM_V45tF8B8NBcxFcjfe7lhBw_7))->data:"nil");
+	fflush(stdout);
 	T5_ = (NimStringDesc*)0;
-	T5_ = nimFloatToStr(((NF)(((NF)(T4_) - (NF)(time1_3dFZBfDyR5LCVb5lgcsuDg))) * (NF)(1.0000000000000000e+003)));
-	printf("%s%s%s\015\012", ((NimStringDesc*) &TM_V45tF8B8NBcxFcjfe7lhBw_6)? (((NimStringDesc*) &TM_V45tF8B8NBcxFcjfe7lhBw_6))->data:"nil", T5_? (T5_)->data:"nil", ((NimStringDesc*) &TM_V45tF8B8NBcxFcjfe7lhBw_7)? (((NimStringDesc*) &TM_V45tF8B8NBcxFcjfe7lhBw_7))->data:"nil");
-	fflush(stdout);
-	printf("%s\015\012", ((NimStringDesc*) &TM_V45tF8B8NBcxFcjfe7lhBw_8)? (((NimStringDesc*) &TM_V45tF8B8NBcxFcjfe7lhBw_8))->data:"nil");
-	fflush(stdout);
-	asgnRefNoCycle((void**) (&name_heOwHj0JR4YxDsRrTxFmkA), readLine_fPRnXwDTqtynUYGl4OixAg(stdin));
+	T5_ = readLine_fPRnXwDTqtynUYGl4OixAg(stdin);
 }
 
 NIM_EXTERNC N_NOINLINE(void, mainDatInit000)(void) {
-static TNimNode* TM_V45tF8B8NBcxFcjfe7lhBw_4[8];
+static TNimNode* TM_V45tF8B8NBcxFcjfe7lhBw_3[8];
 static TNimNode TM_V45tF8B8NBcxFcjfe7lhBw_0[9];
 NTI_1JlHotiCdrGmGQRjzmOgQg_.size = sizeof(TY_1JlHotiCdrGmGQRjzmOgQg);
 NTI_1JlHotiCdrGmGQRjzmOgQg_.kind = 18;
 NTI_1JlHotiCdrGmGQRjzmOgQg_.base = 0;
 NTI_1JlHotiCdrGmGQRjzmOgQg_.flags = 3;
-TM_V45tF8B8NBcxFcjfe7lhBw_4[0] = &TM_V45tF8B8NBcxFcjfe7lhBw_0[1];
+TM_V45tF8B8NBcxFcjfe7lhBw_3[0] = &TM_V45tF8B8NBcxFcjfe7lhBw_0[1];
 TM_V45tF8B8NBcxFcjfe7lhBw_0[1].kind = 1;
 TM_V45tF8B8NBcxFcjfe7lhBw_0[1].offset = offsetof(TY_1JlHotiCdrGmGQRjzmOgQg, Field0);
 TM_V45tF8B8NBcxFcjfe7lhBw_0[1].typ = (&NTI_w9bl9a1ul9ctRJWiMl9cNnIMvg_);
 TM_V45tF8B8NBcxFcjfe7lhBw_0[1].name = "Field0";
-TM_V45tF8B8NBcxFcjfe7lhBw_4[1] = &TM_V45tF8B8NBcxFcjfe7lhBw_0[2];
+TM_V45tF8B8NBcxFcjfe7lhBw_3[1] = &TM_V45tF8B8NBcxFcjfe7lhBw_0[2];
 TM_V45tF8B8NBcxFcjfe7lhBw_0[2].kind = 1;
 TM_V45tF8B8NBcxFcjfe7lhBw_0[2].offset = offsetof(TY_1JlHotiCdrGmGQRjzmOgQg, Field1);
 TM_V45tF8B8NBcxFcjfe7lhBw_0[2].typ = (&NTI_w9bl9a1ul9ctRJWiMl9cNnIMvg_);
 TM_V45tF8B8NBcxFcjfe7lhBw_0[2].name = "Field1";
-TM_V45tF8B8NBcxFcjfe7lhBw_4[2] = &TM_V45tF8B8NBcxFcjfe7lhBw_0[3];
+TM_V45tF8B8NBcxFcjfe7lhBw_3[2] = &TM_V45tF8B8NBcxFcjfe7lhBw_0[3];
 TM_V45tF8B8NBcxFcjfe7lhBw_0[3].kind = 1;
 TM_V45tF8B8NBcxFcjfe7lhBw_0[3].offset = offsetof(TY_1JlHotiCdrGmGQRjzmOgQg, Field2);
 TM_V45tF8B8NBcxFcjfe7lhBw_0[3].typ = (&NTI_w9bl9a1ul9ctRJWiMl9cNnIMvg_);
 TM_V45tF8B8NBcxFcjfe7lhBw_0[3].name = "Field2";
-TM_V45tF8B8NBcxFcjfe7lhBw_4[3] = &TM_V45tF8B8NBcxFcjfe7lhBw_0[4];
+TM_V45tF8B8NBcxFcjfe7lhBw_3[3] = &TM_V45tF8B8NBcxFcjfe7lhBw_0[4];
 TM_V45tF8B8NBcxFcjfe7lhBw_0[4].kind = 1;
 TM_V45tF8B8NBcxFcjfe7lhBw_0[4].offset = offsetof(TY_1JlHotiCdrGmGQRjzmOgQg, Field3);
 TM_V45tF8B8NBcxFcjfe7lhBw_0[4].typ = (&NTI_w9bl9a1ul9ctRJWiMl9cNnIMvg_);
 TM_V45tF8B8NBcxFcjfe7lhBw_0[4].name = "Field3";
-TM_V45tF8B8NBcxFcjfe7lhBw_4[4] = &TM_V45tF8B8NBcxFcjfe7lhBw_0[5];
+TM_V45tF8B8NBcxFcjfe7lhBw_3[4] = &TM_V45tF8B8NBcxFcjfe7lhBw_0[5];
 TM_V45tF8B8NBcxFcjfe7lhBw_0[5].kind = 1;
 TM_V45tF8B8NBcxFcjfe7lhBw_0[5].offset = offsetof(TY_1JlHotiCdrGmGQRjzmOgQg, Field4);
 TM_V45tF8B8NBcxFcjfe7lhBw_0[5].typ = (&NTI_w9bl9a1ul9ctRJWiMl9cNnIMvg_);
 TM_V45tF8B8NBcxFcjfe7lhBw_0[5].name = "Field4";
-TM_V45tF8B8NBcxFcjfe7lhBw_4[5] = &TM_V45tF8B8NBcxFcjfe7lhBw_0[6];
+TM_V45tF8B8NBcxFcjfe7lhBw_3[5] = &TM_V45tF8B8NBcxFcjfe7lhBw_0[6];
 TM_V45tF8B8NBcxFcjfe7lhBw_0[6].kind = 1;
 TM_V45tF8B8NBcxFcjfe7lhBw_0[6].offset = offsetof(TY_1JlHotiCdrGmGQRjzmOgQg, Field5);
 TM_V45tF8B8NBcxFcjfe7lhBw_0[6].typ = (&NTI_w9bl9a1ul9ctRJWiMl9cNnIMvg_);
 TM_V45tF8B8NBcxFcjfe7lhBw_0[6].name = "Field5";
-TM_V45tF8B8NBcxFcjfe7lhBw_4[6] = &TM_V45tF8B8NBcxFcjfe7lhBw_0[7];
+TM_V45tF8B8NBcxFcjfe7lhBw_3[6] = &TM_V45tF8B8NBcxFcjfe7lhBw_0[7];
 TM_V45tF8B8NBcxFcjfe7lhBw_0[7].kind = 1;
 TM_V45tF8B8NBcxFcjfe7lhBw_0[7].offset = offsetof(TY_1JlHotiCdrGmGQRjzmOgQg, Field6);
 TM_V45tF8B8NBcxFcjfe7lhBw_0[7].typ = (&NTI_w9bl9a1ul9ctRJWiMl9cNnIMvg_);
 TM_V45tF8B8NBcxFcjfe7lhBw_0[7].name = "Field6";
-TM_V45tF8B8NBcxFcjfe7lhBw_4[7] = &TM_V45tF8B8NBcxFcjfe7lhBw_0[8];
+TM_V45tF8B8NBcxFcjfe7lhBw_3[7] = &TM_V45tF8B8NBcxFcjfe7lhBw_0[8];
 TM_V45tF8B8NBcxFcjfe7lhBw_0[8].kind = 1;
 TM_V45tF8B8NBcxFcjfe7lhBw_0[8].offset = offsetof(TY_1JlHotiCdrGmGQRjzmOgQg, Field7);
 TM_V45tF8B8NBcxFcjfe7lhBw_0[8].typ = (&NTI_w9bl9a1ul9ctRJWiMl9cNnIMvg_);
 TM_V45tF8B8NBcxFcjfe7lhBw_0[8].name = "Field7";
-TM_V45tF8B8NBcxFcjfe7lhBw_0[0].len = 8; TM_V45tF8B8NBcxFcjfe7lhBw_0[0].kind = 2; TM_V45tF8B8NBcxFcjfe7lhBw_0[0].sons = &TM_V45tF8B8NBcxFcjfe7lhBw_4[0];
+TM_V45tF8B8NBcxFcjfe7lhBw_0[0].len = 8; TM_V45tF8B8NBcxFcjfe7lhBw_0[0].kind = 2; TM_V45tF8B8NBcxFcjfe7lhBw_0[0].sons = &TM_V45tF8B8NBcxFcjfe7lhBw_3[0];
 NTI_1JlHotiCdrGmGQRjzmOgQg_.node = &TM_V45tF8B8NBcxFcjfe7lhBw_0[0];
 NTI_boJ9argmCD9bXSmLW89aEvVWA_.size = sizeof(TY_boJ9argmCD9bXSmLW89aEvVWA*);
 NTI_boJ9argmCD9bXSmLW89aEvVWA_.kind = 24;
