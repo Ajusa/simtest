@@ -16,9 +16,9 @@ proc recombine(spaces: seq[PhaseSpace]): PhaseSpace =
     result.zIntDist = spaces[0].zIntDist
     result.chirp = spaces[0].chirp
     result.b = spaces[0].b
-    for s in spaces:
-        result.totalPulseEnergy += s.totalPulseEnergy
-        result.intensityRatio += s.intensityRatio
+    for i in 0 || <spaces.len:
+        result.totalPulseEnergy += spaces[i].totalPulseEnergy
+        result.intensityRatio += spaces[i].intensityRatio
     result.width = spaces[0].width * spaces.len.float
     result.height = spaces[0].height * spaces.len.float * (1/result.chirp)
 
