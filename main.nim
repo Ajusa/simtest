@@ -1,6 +1,6 @@
-import math, strutils, times
+import math, strutils, times, threadpool
 type PhaseSpace = tuple[width: float, height: float, VzIntDist: float, zIntDist: float, chirp: float, b: float, totalPulseEnergy: float, intensityRatio: float]
-
+{.experimental.}
 proc recombine(spaces: seq[PhaseSpace]): PhaseSpace = 
     var space: PhaseSpace
     space.VzIntDist = spaces[0].VzIntDist
@@ -37,9 +37,10 @@ proc getSplitIntensityRatio(space: PhaseSpace, accuracy: float, numSections: flo
 proc split(s: PhaseSpace, spaces:int): seq[PhaseSpace] =
         var phaseSpaces = newSeq[PhaseSpace](spaces)
         var ratios = newSeq[float](spaces)
-        var spacesD: float = 1/spaces.float
-        for i, ratio in ratios:
-            ratios[i] = s.getSplitIntensityRatio(1005*spacesD, spaces.float, i.float, s.height, s.width);
+        var spacesD = 1/spaces.float
+        parallel:
+            for i, ratio in ratios:
+                ratios[i] = spawn s.getSplitIntensityRatio(1005*spacesD, spaces.float, i.float, s.height, s.width);
         for i, space in phaseSpaces:
             var intensityRatio = ratios[i]
             phaseSpaces[i] = ((s.height/s.chirp)*spacesD, s.height*spacesD, s.VzIntDist, s.zIntDist, s.chirp, s.b, s.totalPulseEnergy*intensityRatio, intensityRatio);

@@ -3,7 +3,7 @@
 /* The generated code is subject to the original license. */
 /* Compiled for: Windows, amd64, gcc */
 /* Command for C compiler:
-   C:\nim\dist\mingw64\bin\gcc.exe -c  -w  -IC:\nim\lib -o C:\Users\Arham\Documents\Projects\simtest\nimcache\stdlib_winlean.o C:\Users\Arham\Documents\Projects\simtest\nimcache\stdlib_winlean.c */
+   C:\nim\dist\mingw64\bin\gcc.exe -c  -w -O3 -fno-strict-aliasing  -IC:\nim\lib -o C:\Users\Arham\Documents\Projects\simtest\nimcache\stdlib_winlean.o C:\Users\Arham\Documents\Projects\simtest\nimcache\stdlib_winlean.c */
 #define NIM_NEW_MANGLING_RULES
 #define NIM_INTBITS 64
 
@@ -36,14 +36,11 @@ struct  FILETIME_bs4NMleDDVF7xsEK0SGLBw  {
 NI32 dwLowDateTime;
 NI32 dwHighDateTime;
 };
-N_NIMCALL(void*, loadLib_EFK1MHQsQvQPg5NaJH389bA)(NimStringDesc* path, NIM_BOOL global_symbols);
-N_NIMCALL(void*, symAddr_fM7lTRTvv9a9axreJA2Bx7jA_2)(void* lib, NCSTRING name);
+N_NIMCALL(void*, loadLib_lSvQvOASnMsmHZsCRL59ctQ)(NimStringDesc* path, NIM_BOOL global_symbols);
+N_NIMCALL(void*, symAddr_NHfjIU1Uh0ju9azgMjiSkQA)(void* lib, NCSTRING name);
 N_NIMCALL(void*, nimLoadLibrary)(NimStringDesc* path);
 N_NOINLINE(void, nimLoadLibraryError)(NimStringDesc* path);
 N_NIMCALL(void*, nimGetProcAddr)(void* lib, NCSTRING name);
-static N_INLINE(void, nimFrame)(TFrame* s);
-N_NOINLINE(void, stackOverflow_II46IjNZztN9bmbxUD8dt8g)(void);
-static N_INLINE(void, popFrame)(void);
 GUID_J2WQBMgezjwf6Trblkflgg WSAID_CONNECTEX_YmR9c9crObjjK9ckt1ygsPQKg;
 GUID_J2WQBMgezjwf6Trblkflgg WSAID_ACCEPTEX_pwoOiDuyZgHBOLaI2GSBpg;
 GUID_J2WQBMgezjwf6Trblkflgg WSAID_GETACCEPTEXSOCKADDRS_rSjtFMq7pCHQR2EQvcKbDg;
@@ -51,7 +48,6 @@ TY_5ctyytqoGFQ0BA1imFGbVw inet_ntop_real_FVXn9aJ5AOo23ScDsZUc9aZw;
 void* ws2_hGspZUrVrEMpO9aP9c3dJQPQ;
 static void* TM_k6kyf4Co79a84IkK9blFuQVA_5;
 TY_9bc9cLDdaqTE6n5J78feKRYg Dl_125825_;
-extern TFrame* framePtr_HRfVMH3jYeBJz6Q6X9b6Ptw;
 NIM_CONST TY_9cWG514ToTTjfTPLhXXV0IQ TM_k6kyf4Co79a84IkK9blFuQVA_2 = {((NI8) -114),
 ((NI8) -23),
 ((NI8) 118),
@@ -74,85 +70,44 @@ STRING_LITERAL(TM_k6kyf4Co79a84IkK9blFuQVA_4, "Ws2_32.dll", 10);
 STRING_LITERAL(TM_k6kyf4Co79a84IkK9blFuQVA_7, "kernel32", 8);
 STRING_LITERAL(TM_k6kyf4Co79a84IkK9blFuQVA_8, "kernel32", 8);
 
-static N_INLINE(void, nimFrame)(TFrame* s) {
-	NI T1_;
-	T1_ = (NI)0;
-	{
-		if (!(framePtr_HRfVMH3jYeBJz6Q6X9b6Ptw == NIM_NIL)) goto LA4_;
-		T1_ = ((NI) 0);
-	}
-	goto LA2_;
-	LA4_: ;
-	{
-		T1_ = ((NI) ((NI16)((*framePtr_HRfVMH3jYeBJz6Q6X9b6Ptw).calldepth + ((NI16) 1))));
-	}
-	LA2_: ;
-	(*s).calldepth = ((NI16) (T1_));
-	(*s).prev = framePtr_HRfVMH3jYeBJz6Q6X9b6Ptw;
-	framePtr_HRfVMH3jYeBJz6Q6X9b6Ptw = s;
-	{
-		if (!((*s).calldepth == ((NI16) 2000))) goto LA9_;
-		stackOverflow_II46IjNZztN9bmbxUD8dt8g();
-	}
-	LA9_: ;
-}
-
-static N_INLINE(void, popFrame)(void) {
-	framePtr_HRfVMH3jYeBJz6Q6X9b6Ptw = (*framePtr_HRfVMH3jYeBJz6Q6X9b6Ptw).prev;
-}
-
 N_NIMCALL(NI64, rdFileTime_8xfVp1z4bc5fRCRgoEFhIQ)(FILETIME_bs4NMleDDVF7xsEK0SGLBw f) {
 	NI64 result;
-	nimfr_("rdFileTime", "winlean.nim")
 	result = (NI64)0;
-	nimln_(382, "winlean.nim");
 	result = (NI64)(((NI64)(NU64)(NU32)(f.dwLowDateTime)) | (NI64)((NU64)(((NI64)(NU64)(NU32)(f.dwHighDateTime))) << (NU64)(((NI) 32))));
-	popFrame();
 	return result;
 }
 NIM_EXTERNC N_NOINLINE(void, stdlib_winleanInit000)(void) {
 	GUID_J2WQBMgezjwf6Trblkflgg T1_;
 	GUID_J2WQBMgezjwf6Trblkflgg T2_;
 	GUID_J2WQBMgezjwf6Trblkflgg T3_;
-	nimfr_("winlean", "winlean.nim")
-	nimln_(811, "winlean.nim");
 	memset((void*)(&T1_), 0, sizeof(T1_));
 	T1_.D1 = ((NI32) 631375801);
 	T1_.D2 = ((NI16) -8717);
 	T1_.D3 = ((NI16) 18016);
 	memcpy((void*)T1_.D4, (NIM_CONST void*)TM_k6kyf4Co79a84IkK9blFuQVA_2, sizeof(TY_9cWG514ToTTjfTPLhXXV0IQ));
 	WSAID_CONNECTEX_YmR9c9crObjjK9ckt1ygsPQKg = T1_;
-	nimln_(813, "winlean.nim");
 	memset((void*)(&T2_), 0, sizeof(T2_));
 	T2_.D1 = ((NI32) -1254720015);
 	T2_.D2 = ((NI16) -13396);
 	T2_.D3 = ((NI16) 4559);
 	memcpy((void*)T2_.D4, (NIM_CONST void*)TM_k6kyf4Co79a84IkK9blFuQVA_3, sizeof(TY_9cWG514ToTTjfTPLhXXV0IQ));
 	WSAID_ACCEPTEX_pwoOiDuyZgHBOLaI2GSBpg = T2_;
-	nimln_(815, "winlean.nim");
 	memset((void*)(&T3_), 0, sizeof(T3_));
 	T3_.D1 = ((NI32) -1254720014);
 	T3_.D2 = ((NI16) -13396);
 	T3_.D3 = ((NI16) 4559);
 	memcpy((void*)T3_.D4, (NIM_CONST void*)TM_k6kyf4Co79a84IkK9blFuQVA_3, sizeof(TY_9cWG514ToTTjfTPLhXXV0IQ));
 	WSAID_GETACCEPTEXSOCKADDRS_rSjtFMq7pCHQR2EQvcKbDg = T3_;
-	nimln_(865, "winlean.nim");
 	inet_ntop_real_FVXn9aJ5AOo23ScDsZUc9aZw = NIM_NIL;
-	nimln_(867, "winlean.nim");
-	ws2_hGspZUrVrEMpO9aP9c3dJQPQ = loadLib_EFK1MHQsQvQPg5NaJH389bA(((NimStringDesc*) &TM_k6kyf4Co79a84IkK9blFuQVA_4), NIM_FALSE);
-	nimln_(868, "winlean.nim");
+	ws2_hGspZUrVrEMpO9aP9c3dJQPQ = loadLib_lSvQvOASnMsmHZsCRL59ctQ(((NimStringDesc*) &TM_k6kyf4Co79a84IkK9blFuQVA_4), NIM_FALSE);
 	{
 		void* T8_;
-		nimln_(363, "system.nim");
-		nimln_(868, "winlean.nim");
 		if (!!((ws2_hGspZUrVrEMpO9aP9c3dJQPQ == NIM_NIL))) goto LA6_;
-		nimln_(869, "winlean.nim");
 		T8_ = (void*)0;
-		T8_ = symAddr_fM7lTRTvv9a9axreJA2Bx7jA_2(ws2_hGspZUrVrEMpO9aP9c3dJQPQ, "inet_ntop");
+		T8_ = symAddr_NHfjIU1Uh0ju9azgMjiSkQA(ws2_hGspZUrVrEMpO9aP9c3dJQPQ, "inet_ntop");
 		inet_ntop_real_FVXn9aJ5AOo23ScDsZUc9aZw = ((TY_5ctyytqoGFQ0BA1imFGbVw) (T8_));
 	}
 	LA6_: ;
-	popFrame();
 }
 
 NIM_EXTERNC N_NOINLINE(void, stdlib_winleanDatInit000)(void) {
