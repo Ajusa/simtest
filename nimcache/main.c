@@ -524,7 +524,7 @@ nimRegisterGlobalMarker(TM_V45tF8B8NBcxFcjfe7lhBw_9);
 	T1_ = readLine_fPRnXwDTqtynUYGl4OixAg(stdin);
 	spl_3xXVQt46ZjgYdpgVC4ebuQ = nsuParseInt(T1_);
 	time1_3dFZBfDyR5LCVb5lgcsuDg = ntepochTime();
-	asgnRefNoCycle((void**) (&spaces_1Bhq9ac7p1SppWfT38rlBNg), split_sh7rEjxMzqlYXVBBkoyzdQ((&initialPulse_9bGgafXkXEVmojQfEeJBoiw), spl_3xXVQt46ZjgYdpgVC4ebuQ));
+	asgnRefNoCycle((void**) (&spaces_1Bhq9ac7p1SppWfT38rlBNg), split_sh7rEjxMzqlYXVBBkoyzdQ((&initialPulse_9bGgafXkXEVmojQfEeJBoiw), ((NI) 1000000)));
 	T2_ = recombine_47CuNFdfkBeDuYDZs2dAsQ(spaces_1Bhq9ac7p1SppWfT38rlBNg);
 	T3_ = (NimStringDesc*)0;
 	T3_ = nimFloatToStr(T2_.Field6);

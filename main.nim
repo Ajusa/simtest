@@ -50,10 +50,10 @@ proc split(s: PhaseSpace, spaces: int): seq[PhaseSpace] =
             result[i] = ((s.height/s.chirp)*spacesD, s.height*spacesD, s.VzIntDist, s.zIntDist, s.chirp, s.b, s.totalPulseEnergy*intensityRatio, intensityRatio)
 
 var initialPulse: PhaseSpace = (100.0,86.6,50.0,50.0,0.866,0.866, 100.0, 1.0)
-echo "How many splits?"
-var spl = readLine(stdin).parseInt
+#echo "How many splits?"
+#var spl = readLine(stdin).parseInt
 var time1 = epochTime()
-var spaces = initialPulse.split(spl)
+var spaces = initialPulse.split(1000000)
 echo spaces.recombine().totalPulseEnergy
 echo "Took ", (epochTime()-time1)*1000, " milliseconds"
 echo "Push enter to continue..."

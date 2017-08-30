@@ -1,8 +1,5 @@
 {"compile":[
 ["C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\main.c", "C:\\nim\\dist\\mingw64\\bin\\gcc.exe -c  -w -O3 -fno-strict-aliasing  -IC:\\nim\\lib -o C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\main.o C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\main.c"],
-["C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_system.c", "C:\\nim\\dist\\mingw64\\bin\\gcc.exe -c  -w -O3 -fno-strict-aliasing  -IC:\\nim\\lib -o C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_system.o C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_system.c"],
-["C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_strutils.c", "C:\\nim\\dist\\mingw64\\bin\\gcc.exe -c  -w -O3 -fno-strict-aliasing  -IC:\\nim\\lib -o C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_strutils.o C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_strutils.c"],
-["C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_parseutils.c", "C:\\nim\\dist\\mingw64\\bin\\gcc.exe -c  -w -O3 -fno-strict-aliasing  -IC:\\nim\\lib -o C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_parseutils.o C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_parseutils.c"],
 ],
 "link":[
 "C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\main.o",
