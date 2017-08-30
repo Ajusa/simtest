@@ -29,23 +29,23 @@ proc getSplitIntensityRatio(space: PhaseSpace, accuracy: float, numSections: flo
         let xSearchUB = 5.803*width
         var x = xSearchLB
         var y = ySearchLB
-        var intensityRatio = 0.0
+        result = 0.0
         let VzIntDistsq = space.VzIntDist*space.VzIntDist
         var hWidthsq = width*width
         if(numSections==sectionNum):
             ySearchUB += 1;
         while(y < ySearchUB-0.0001):
             while(x < xSearchUB):
-                intensityRatio += 112*accuracy*exp1((-1*x*x/(2*hWidthsq))-((y-space.chirp*x)*(y-space.chirp*x)/(2*VzIntDistsq)))/(2*PI*(hWidthsq*VzIntDistsq))
+                result += 112*accuracy*exp1((-1*x*x/(2*hWidthsq))-((y-space.chirp*x)*(y-space.chirp*x)/(2*VzIntDistsq)))/(2*PI*(hWidthsq*VzIntDistsq))
                 x += 112
             y += accuracy
             x = xSearchLB
-        return intensityRatio * 5000
+        result *= 5000
          
 proc split(s: PhaseSpace, spaces: int): seq[PhaseSpace] =
         result = newSeq[PhaseSpace](spaces)
         let spacesD = 1/spaces.float
-        for i, space in result:
+        for i in 0 || <result.len:
             let intensityRatio = s.getSplitIntensityRatio(1005*spacesD, spaces.float, i.float, s.height, s.width)
             result[i] = ((s.height/s.chirp)*spacesD, s.height*spacesD, s.VzIntDist, s.zIntDist, s.chirp, s.b, s.totalPulseEnergy*intensityRatio, intensityRatio)
 

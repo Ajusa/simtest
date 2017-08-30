@@ -1,16 +1,16 @@
 {"compile":[
-["C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\main.c", "C:\\nim\\dist\\mingw64\\bin\\gcc.exe -c  -w -O3 -fno-strict-aliasing  -IC:\\nim\\lib -o C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\main.o C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\main.c"],
+["C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\main.c", "vccexe.exe /c --platform:amd64 /nologo -DWIN32_LEAN_AND_MEAN /openmp /O2  /IC:\\nim\\lib /FoC:\\Users\\jaina18\\Documents\\simtest\\nimcache\\main.obj C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\main.c"],
 ],
 "link":[
-"C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\main.o",
-"C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_system.o",
-"C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_math.o",
-"C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_strutils.o",
-"C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_times.o",
-"C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_parseutils.o",
-"C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_algorithm.o",
-"C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_winlean.o",
-"C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_dynlib.o"
+"C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\main.obj",
+"C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\stdlib_system.obj",
+"C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\stdlib_math.obj",
+"C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\stdlib_strutils.obj",
+"C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\stdlib_times.obj",
+"C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\stdlib_parseutils.obj",
+"C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\stdlib_algorithm.obj",
+"C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\stdlib_winlean.obj",
+"C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\stdlib_dynlib.obj"
 ],
-"linkcmd": "C:\\nim\\dist\\mingw64\\bin\\gcc.exe   -o C:\\Users\\Arham\\Documents\\Projects\\simtest\\main.exe  C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\main.o C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_system.o C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_math.o C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_strutils.o C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_times.o C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_parseutils.o C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_algorithm.o C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_winlean.o C:\\Users\\Arham\\Documents\\Projects\\simtest\\nimcache\\stdlib_dynlib.o    "
+"linkcmd": "vccexe.exe   /openmp  --platform:amd64 /nologo /DEBUG /Zi /F33554432  /FeC:\\Users\\jaina18\\Documents\\simtest\\main.exe  C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\main.obj C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\stdlib_system.obj C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\stdlib_math.obj C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\stdlib_strutils.obj C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\stdlib_times.obj C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\stdlib_parseutils.obj C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\stdlib_algorithm.obj C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\stdlib_winlean.obj C:\\Users\\jaina18\\Documents\\simtest\\nimcache\\stdlib_dynlib.obj "
 }
