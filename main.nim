@@ -16,27 +16,24 @@ proc recombine(spaces: seq[PhaseSpace]): PhaseSpace =
     result.zIntDist = spaces[0].zIntDist
     result.chirp = spaces[0].chirp
     result.b = spaces[0].b
-    for i in 0 || <spaces.len:
+    for i in 0..spaces.len:
         result.totalPulseEnergy += spaces[i].totalPulseEnergy
         result.intensityRatio += spaces[i].intensityRatio
     result.width = spaces[0].width * spaces.len.float
     result.height = spaces[0].height * spaces.len.float * (1/result.chirp)
 
-proc getSplitIntensityRatio(space: PhaseSpace, accuracy: float, numSections: float, sectionNum: float, height: float, width: float): float =
-        let ySearchLB = -5.803*height + ((5.803*height*2/numSections)*(sectionNum-1))
-        var ySearchUB = 5.803*height - (5.803*height*2/numSections)*(numSections - sectionNum)
-        let xSearchLB = -5.803*width
-        let xSearchUB = 5.803*width
+proc getSplitIntensityRatio(s: PhaseSpace, accuracy: float, numSections: float, sectionNum: float, VzIntDistsq: float, hWidthsq: float, p: float, t1: float, t2: float): float =
+        let ySearchLB = -5.803*s.height + ((5.803*s.height*2/numSections)*(sectionNum-1))
+        let ySearchUB = 5.803*s.height - (5.803*s.height*2/numSections)*(numSections - sectionNum)
+        let xSearchLB = -5.803*s.width
+        let xSearchUB = 5.803*s.width
         var x = xSearchLB
         var y = ySearchLB
         result = 0.0
-        let VzIntDistsq = space.VzIntDist*space.VzIntDist
-        var hWidthsq = width*width
-        if(numSections==sectionNum):
-            ySearchUB += 1;
+        if(numSections==sectionNum): return 0
         while(y < ySearchUB-0.0001):
             while(x < xSearchUB):
-                result += 112*accuracy*exp1((-1*x*x/(2*hWidthsq))-((y-space.chirp*x)*(y-space.chirp*x)/(2*VzIntDistsq)))/(2*PI*(hWidthsq*VzIntDistsq))
+                result += 112*accuracy*exp1((x*x*t1)-((y-s.chirp*x)*(y-s.chirp*x)*t2))*p
                 x += 112
             y += accuracy
             x = xSearchLB
@@ -45,10 +42,15 @@ proc getSplitIntensityRatio(space: PhaseSpace, accuracy: float, numSections: flo
 proc split(s: PhaseSpace, spaces: int): seq[PhaseSpace] =
         result = newSeq[PhaseSpace](spaces)
         let spacesD = 1/spaces.float
-        for i in 0 || <result.len:
-            let intensityRatio = s.getSplitIntensityRatio(1005*spacesD, spaces.float, i.float, s.height, s.width)
-            result[i] = ((s.height/s.chirp)*spacesD, s.height*spacesD, s.VzIntDist, s.zIntDist, s.chirp, s.b, s.totalPulseEnergy*intensityRatio, intensityRatio)
-
+        let VzIntDistsq = s.VzIntDist*s.VzIntDist
+        let hWidthsq = s.width*s.width
+        let t1 = -1/(2*hWidthsq)
+        let t2 = 1/(2*VzIntDistsq)
+        let slope = s.height/s.chirp
+        let p = 1/(TAU*(hWidthsq*VzIntDistsq))
+        for i in 0 || result.len:
+            let intensityRatio = s.getSplitIntensityRatio(1005*spacesD, spaces.float, i.float, VzIntDistsq, hWidthsq, p, t1, t2)
+            result[i] = (slope*spacesD, s.height*spacesD, s.VzIntDist, s.zIntDist, s.chirp, s.b, s.totalPulseEnergy*intensityRatio, intensityRatio)
 var initialPulse: PhaseSpace = (100.0,86.6,50.0,50.0,0.866,0.866, 100.0, 1.0)
 #echo "How many splits?"
 #var spl = readLine(stdin).parseInt
