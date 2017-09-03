@@ -1,1 +1,1 @@
-nim c -r --cc:vcc --passC:"/openmp" --passL:"/openmp" -d:release main.nim --ffast-math
+nim c -r --cc:vcc --passC:"/openmp" --passL:"/openmp" -d:release main.nim 

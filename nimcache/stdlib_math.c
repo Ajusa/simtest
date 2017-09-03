@@ -3,7 +3,7 @@
 /* The generated code is subject to the original license. */
 /* Compiled for: Windows, amd64, vcc */
 /* Command for C compiler:
-   vccexe.exe /c --platform:amd64 /nologo -DWIN32_LEAN_AND_MEAN /openmp /O2  /IC:\nim\lib /FoC:\Users\jaina18\Documents\simtest\nimcache\stdlib_math.obj C:\Users\jaina18\Documents\simtest\nimcache\stdlib_math.c */
+   vccexe.exe /c --platform:amd64 /nologo -DWIN32_LEAN_AND_MEAN /openmp /O2  /IC:\nim\lib /FoC:\Users\Arham\Documents\Projects\simtest\nimcache\stdlib_math.obj C:\Users\Arham\Documents\Projects\simtest\nimcache\stdlib_math.c */
 #define NIM_NEW_MANGLING_RULES
 #define NIM_INTBITS 64
 

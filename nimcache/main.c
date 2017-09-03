@@ -3,7 +3,7 @@
 /* The generated code is subject to the original license. */
 /* Compiled for: Windows, amd64, vcc */
 /* Command for C compiler:
-   vccexe.exe /c --platform:amd64 /nologo -DWIN32_LEAN_AND_MEAN /openmp /O2  /IC:\nim\lib /FoC:\Users\jaina18\Documents\simtest\nimcache\main.obj C:\Users\jaina18\Documents\simtest\nimcache\main.c */
+   vccexe.exe /c --platform:amd64 /nologo -DWIN32_LEAN_AND_MEAN /openmp /O2  /IC:\nim\lib /FoC:\Users\Arham\Documents\Projects\simtest\nimcache\main.obj C:\Users\Arham\Documents\Projects\simtest\nimcache\main.c */
 #define NIM_NEW_MANGLING_RULES
 #define NIM_INTBITS 64
 
@@ -231,7 +231,7 @@ static N_NIMCALL(void, TM_V45tF8B8NBcxFcjfe7lhBw_4)(void);
 N_NIMCALL(void, nimRegisterGlobalMarker)(TY_T4eqaYlFJYZUv9aG9b1TV0bQ markerProc);
 N_NIMCALL(TY_boJ9argmCD9bXSmLW89aEvVWA*, split_9ba8xJiNoU9aHX7HmGZ68mGQ)(TY_1JlHotiCdrGmGQRjzmOgQg* s, NI spaces);
 N_NIMCALL(TY_boJ9argmCD9bXSmLW89aEvVWA*, newSeq_t7ymgOjzhuSqFhEoTzkv8A)(NI len);
-N_NIMCALL(NF, getSplitIntensityRatio_kURSCqblShcNexe4T9cvN7A)(TY_1JlHotiCdrGmGQRjzmOgQg* space, NF accuracy, NF numSections, NF sectionNum, NF height, NF width);
+N_NIMCALL(NF, getSplitIntensityRatio_Gz2ff9ajOU0qY5J0LCLOXGw)(TY_1JlHotiCdrGmGQRjzmOgQg* s, NF accuracy, NF numSections, NF sectionNum, NF VzIntDistsq, NF hWidthsq, NF p, NF t1, NF t2);
 static N_INLINE(void, pluseq__7kHiltrvRlcg6wSYR3CxAwmain)(NF* x, NF y);
 N_NIMCALL(NF, exp1_GzHU3IlbBDrraj6XQWPqjA)(NF y);
 static N_INLINE(void, stareq__7kHiltrvRlcg6wSYR3CxAw_2main)(NF* x, NF y);
@@ -324,7 +324,7 @@ N_NIMCALL(NF, exp1_GzHU3IlbBDrraj6XQWPqjA)(NF y) {
 	return result;
 }
 
-N_NIMCALL(NF, getSplitIntensityRatio_kURSCqblShcNexe4T9cvN7A)(TY_1JlHotiCdrGmGQRjzmOgQg* space, NF accuracy, NF numSections, NF sectionNum, NF height, NF width) {
+N_NIMCALL(NF, getSplitIntensityRatio_Gz2ff9ajOU0qY5J0LCLOXGw)(TY_1JlHotiCdrGmGQRjzmOgQg* s, NF accuracy, NF numSections, NF sectionNum, NF VzIntDistsq, NF hWidthsq, NF p, NF t1, NF t2) {
 	NF result;
 	NF ySearchLB;
 	NF ySearchUB;
@@ -332,21 +332,18 @@ N_NIMCALL(NF, getSplitIntensityRatio_kURSCqblShcNexe4T9cvN7A)(TY_1JlHotiCdrGmGQR
 	NF xSearchUB;
 	NF x;
 	NF y;
-	NF VzIntDistsq;
-	NF hWidthsq;
-	result = (NF)0;
-	ySearchLB = ((NF)(((NF)(-5.8029999999999999e+000) * (NF)(height))) + (NF)(((NF)(((NF)(((NF)(((NF)(5.8029999999999999e+000) * (NF)(height))) * (NF)(2.0000000000000000e+000))) / (NF)(numSections))) * (NF)(((NF)(sectionNum) - (NF)(1.0000000000000000e+000))))));
-	ySearchUB = ((NF)(((NF)(5.8029999999999999e+000) * (NF)(height))) - (NF)(((NF)(((NF)(((NF)(((NF)(5.8029999999999999e+000) * (NF)(height))) * (NF)(2.0000000000000000e+000))) / (NF)(numSections))) * (NF)(((NF)(numSections) - (NF)(sectionNum))))));
-	xSearchLB = ((NF)(-5.8029999999999999e+000) * (NF)(width));
-	xSearchUB = ((NF)(5.8029999999999999e+000) * (NF)(width));
+{	result = (NF)0;
+	ySearchLB = ((NF)(((NF)(-5.8029999999999999e+000) * (NF)((*s).Field1))) + (NF)(((NF)(((NF)(((NF)(((NF)(5.8029999999999999e+000) * (NF)((*s).Field1))) * (NF)(2.0000000000000000e+000))) / (NF)(numSections))) * (NF)(((NF)(sectionNum) - (NF)(1.0000000000000000e+000))))));
+	ySearchUB = ((NF)(((NF)(5.8029999999999999e+000) * (NF)((*s).Field1))) - (NF)(((NF)(((NF)(((NF)(((NF)(5.8029999999999999e+000) * (NF)((*s).Field1))) * (NF)(2.0000000000000000e+000))) / (NF)(numSections))) * (NF)(((NF)(numSections) - (NF)(sectionNum))))));
+	xSearchLB = ((NF)(-5.8029999999999999e+000) * (NF)((*s).Field0));
+	xSearchUB = ((NF)(5.8029999999999999e+000) * (NF)((*s).Field0));
 	x = xSearchLB;
 	y = ySearchLB;
 	result = 0.0;
-	VzIntDistsq = ((NF)((*space).Field2) * (NF)((*space).Field2));
-	hWidthsq = ((NF)(width) * (NF)(width));
 	{
 		if (!(numSections == sectionNum)) goto LA3_;
-		pluseq__7kHiltrvRlcg6wSYR3CxAwmain((&ySearchUB), 1.0000000000000000e+000);
+		result = 0.0;
+		goto BeforeRet_;
 	}
 	LA3_: ;
 	{
@@ -357,8 +354,8 @@ N_NIMCALL(NF, getSplitIntensityRatio_kURSCqblShcNexe4T9cvN7A)(TY_1JlHotiCdrGmGQR
 					NF T9_;
 					if (!(x < xSearchUB)) goto LA8;
 					T9_ = (NF)0;
-					T9_ = exp1_GzHU3IlbBDrraj6XQWPqjA(((NF)(((NF)(((NF)(((NF)(-1.0000000000000000e+000) * (NF)(x))) * (NF)(x))) / (NF)(((NF)(2.0000000000000000e+000) * (NF)(hWidthsq))))) - (NF)(((NF)(((NF)(((NF)(y) - (NF)(((NF)((*space).Field4) * (NF)(x))))) * (NF)(((NF)(y) - (NF)(((NF)((*space).Field4) * (NF)(x))))))) / (NF)(((NF)(2.0000000000000000e+000) * (NF)(VzIntDistsq)))))));
-					pluseq__7kHiltrvRlcg6wSYR3CxAwmain((&result), ((NF)(((NF)(((NF)(1.1200000000000000e+002) * (NF)(accuracy))) * (NF)(T9_))) / (NF)(((NF)(6.2831853071795862e+000) * (NF)(((NF)(hWidthsq) * (NF)(VzIntDistsq)))))));
+					T9_ = exp1_GzHU3IlbBDrraj6XQWPqjA(((NF)(((NF)(((NF)(x) * (NF)(x))) * (NF)(t1))) - (NF)(((NF)(((NF)(((NF)(y) - (NF)(((NF)((*s).Field4) * (NF)(x))))) * (NF)(((NF)(y) - (NF)(((NF)((*s).Field4) * (NF)(x))))))) * (NF)(t2)))));
+					pluseq__7kHiltrvRlcg6wSYR3CxAwmain((&result), ((NF)(((NF)(((NF)(1.1200000000000000e+002) * (NF)(accuracy))) * (NF)(T9_))) * (NF)(p)));
 					pluseq__7kHiltrvRlcg6wSYR3CxAwmain((&x), 1.1200000000000000e+002);
 				} LA8: ;
 			}
@@ -367,21 +364,34 @@ N_NIMCALL(NF, getSplitIntensityRatio_kURSCqblShcNexe4T9cvN7A)(TY_1JlHotiCdrGmGQR
 		} LA6: ;
 	}
 	stareq__7kHiltrvRlcg6wSYR3CxAw_2main((&result), 5.0000000000000000e+003);
+	}BeforeRet_: ;
 	return result;
 }
 
 N_NIMCALL(TY_boJ9argmCD9bXSmLW89aEvVWA*, split_9ba8xJiNoU9aHX7HmGZ68mGQ)(TY_1JlHotiCdrGmGQRjzmOgQg* s, NI spaces) {
 	TY_boJ9argmCD9bXSmLW89aEvVWA* result;
 	NF spacesD;
+	NF VzIntDistsq;
+	NF hWidthsq;
+	NF t1;
+	NF t2;
+	NF slope;
+	NF p;
 	NI i;
 	result = (TY_boJ9argmCD9bXSmLW89aEvVWA*)0;
 	result = newSeq_t7ymgOjzhuSqFhEoTzkv8A(((NI) (spaces)));
 	spacesD = ((NF)(1.0000000000000000e+000) / (NF)(((NF) (spaces))));
+	VzIntDistsq = ((NF)((*s).Field2) * (NF)((*s).Field2));
+	hWidthsq = ((NF)((*s).Field0) * (NF)((*s).Field0));
+	t1 = ((NF)(-1.0000000000000000e+000) / (NF)(((NF)(2.0000000000000000e+000) * (NF)(hWidthsq))));
+	t2 = ((NF)(1.0000000000000000e+000) / (NF)(((NF)(2.0000000000000000e+000) * (NF)(VzIntDistsq))));
+	slope = ((NF)((*s).Field1) / (NF)((*s).Field4));
+	p = ((NF)(1.0000000000000000e+000) / (NF)(((NF)(6.2831853071795862e+000) * (NF)(((NF)(hWidthsq) * (NF)(VzIntDistsq))))));
 	#pragma omp parallel for 
-for (i = ((NI) 0); i <= ((result ? result->Sup.len : 0) - 1); ++i)	{
+for (i = ((NI) 0); i <= (result ? result->Sup.len : 0); ++i)	{
 		NF intensityRatio;
-		intensityRatio = getSplitIntensityRatio_kURSCqblShcNexe4T9cvN7A(s, ((NF)(1.0050000000000000e+003) * (NF)(spacesD)), ((NF) (spaces)), ((NF) (i)), (*s).Field1, (*s).Field0);
-		result->data[i].Field0 = ((NF)(((NF)((*s).Field1) / (NF)((*s).Field4))) * (NF)(spacesD));
+		intensityRatio = getSplitIntensityRatio_Gz2ff9ajOU0qY5J0LCLOXGw(s, ((NF)(1.0050000000000000e+003) * (NF)(spacesD)), ((NF) (spaces)), ((NF) (i)), VzIntDistsq, hWidthsq, p, t1, t2);
+		result->data[i].Field0 = ((NF)(slope) * (NF)(spacesD));
 		result->data[i].Field1 = ((NF)((*s).Field1) * (NF)(spacesD));
 		result->data[i].Field2 = (*s).Field2;
 		result->data[i].Field3 = (*s).Field3;
@@ -434,20 +444,22 @@ N_NIMCALL(TY_1JlHotiCdrGmGQRjzmOgQg, recombine_47CuNFdfkBeDuYDZs2dAsQ)(TY_boJ9ar
 	result.Field3 = spaces->data[((NI) 0)].Field3;
 	result.Field4 = spaces->data[((NI) 0)].Field4;
 	result.Field5 = spaces->data[((NI) 0)].Field5;
+	result.Field6 = 0.0;
 	{
-		TY_1JlHotiCdrGmGQRjzmOgQg s;
 		NI i;
-		NI L;
-		memset((void*)(&s), 0, sizeof(s));
-		i = ((NI) 0);
-		L = (spaces ? spaces->Sup.len : 0);
+		NI colontmp_;
+		NI res;
+		i = (NI)0;
+		colontmp_ = (NI)0;
+		colontmp_ = (spaces ? spaces->Sup.len : 0);
+		res = ((NI) 0);
 		{
 			while (1) {
-				if (!(i < L)) goto LA3;
-				s = spaces->data[i];
-				pluseq__7kHiltrvRlcg6wSYR3CxAwmain((&result.Field6), s.Field6);
-				pluseq__7kHiltrvRlcg6wSYR3CxAwmain((&result.Field7), s.Field7);
-				i += ((NI) 1);
+				if (!(res <= colontmp_)) goto LA3;
+				i = res;
+				pluseq__7kHiltrvRlcg6wSYR3CxAwmain((&result.Field6), spaces->data[i].Field6);
+				pluseq__7kHiltrvRlcg6wSYR3CxAwmain((&result.Field7), spaces->data[i].Field7);
+				res += ((NI) 1);
 			} LA3: ;
 		}
 	}
@@ -521,7 +533,7 @@ nimRegisterGlobalMarker(TM_V45tF8B8NBcxFcjfe7lhBw_4);
 nimRegisterGlobalMarker(TM_V45tF8B8NBcxFcjfe7lhBw_8);
 	initialPulse_9bGgafXkXEVmojQfEeJBoiw = TM_V45tF8B8NBcxFcjfe7lhBw_2;
 	time1_3dFZBfDyR5LCVb5lgcsuDg = ntepochTime();
-	asgnRefNoCycle((void**) (&spaces_1Bhq9ac7p1SppWfT38rlBNg), split_9ba8xJiNoU9aHX7HmGZ68mGQ((&initialPulse_9bGgafXkXEVmojQfEeJBoiw), ((NI) 1000000)));
+	asgnRefNoCycle((void**) (&spaces_1Bhq9ac7p1SppWfT38rlBNg), split_9ba8xJiNoU9aHX7HmGZ68mGQ((&initialPulse_9bGgafXkXEVmojQfEeJBoiw), ((NI) 10000000)));
 	T1_ = recombine_47CuNFdfkBeDuYDZs2dAsQ(spaces_1Bhq9ac7p1SppWfT38rlBNg);
 	T2_ = (NimStringDesc*)0;
 	T2_ = nimFloatToStr(T1_.Field6);

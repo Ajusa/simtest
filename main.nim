@@ -16,6 +16,7 @@ proc recombine(spaces: seq[PhaseSpace]): PhaseSpace =
     result.zIntDist = spaces[0].zIntDist
     result.chirp = spaces[0].chirp
     result.b = spaces[0].b
+    result.totalPulseEnergy = 0
     for i in 0..spaces.len:
         result.totalPulseEnergy += spaces[i].totalPulseEnergy
         result.intensityRatio += spaces[i].intensityRatio
@@ -55,7 +56,7 @@ var initialPulse: PhaseSpace = (100.0,86.6,50.0,50.0,0.866,0.866, 100.0, 1.0)
 #echo "How many splits?"
 #var spl = readLine(stdin).parseInt
 var time1 = epochTime()
-var spaces = initialPulse.split(1000000)
+var spaces = initialPulse.split(10000000)
 echo spaces.recombine().totalPulseEnergy
 echo "Took ", (epochTime()-time1)*1000, " milliseconds"
 echo "Push enter to continue..."
