@@ -5,7 +5,18 @@ type
       hDepth, hDepthVelocity, VxIntDist, xIntDist, chirpT, bT,
       vZC, zC: float
     ]
+#include script
 let expNum = 1/256.0
+proc readSpec(filename: string): seq[seq[float]] = 
+    var raw = readFile(filename).string
+    var toReturn = newSeq[seq[float]]() 
+    toReturn.add(newSeq[float]())
+    toReturn.add(newSeq[float]())
+    for line in raw.splitLines:
+        if line.len > 25:
+            toReturn[0].add(line.split(",")[0].strip.parseFloat)
+            toReturn[1].add(line.split(",")[1].strip.parseFloat)
+    return toReturn
 proc exp1(y: float): float = 
     result = 1.0 + y * expNum;
     result *= result; result *= result; result *= result; result *= result
@@ -60,11 +71,33 @@ proc freeExpansion(s: PhaseSpace, time: float): PhaseSpace =
     result.chirpT = result.bT*pow(result.VxIntDist,2)/pow(result.xIntDist,2)
     result.hWidth = sqrt(1/((1/pow(result.zIntDist,2))-pow(result.chirp/result.VzIntDist,2)))
     result.hDepth = sqrt(1/((1/pow(result.xIntDist,2))-pow(result.chirpT/result.VxIntDist,2)))
+proc RFLens(s: PhaseSpace, changeChirp: float): PhaseSpace = 
+    result = s
+    result.chirp += changeChirp
+proc magLens(s: PhaseSpace, changechirpT: float): PhaseSpace = 
+    result = s
+    result.chirpT += changeChirpT
+proc print(s: PhaseSpace) = 
+    echo("hWidth: ", s.hWidth, "  "," hDepth: ", s.hDepth);
+    echo ("hHeight: ", s.hHeight, " ",   " hDepthVelocity: ", s.hDepthVelocity);
+    echo ("VzIntDist: ", s.VzIntDist,    " VxIntDist: ", s.VxIntDist);
+    echo ("zIntDist: ", s.zIntDist, " ", " xIntDist: ", s.xIntDist);
+    echo ("chirp: ", s.chirp, " ",       " chirpT: ", s.chirpT);
+    echo ("b: ", s.b, "     ",           " bT: ", s.bT);
+    echo ("VzC: ", s.vZC, "   ",         "zC: ", s.zC);
+    echo ("totalPulseEnergy: ", s.totalPulseEnergy);
+    echo ("intensityRatio: ", s.intensityRatio);
+    echo ("");
+include script
 #Main
+discard """
 var initialPulse: PhaseSpace = (100.float, 86.6.float, 50.float, 50.float, 0.866.float, 0.866.float, 100.float, 1.float, 100.float, 86.6.float, 50.float, 50.float, 0.866.float, 0.866.float, 0.float, 0.float)
+var spectroTable = readSpec("hexogon BN-powder-eels.sl0")
 var time1 = epochTime()
-var spaces = initialPulse.split(10000000)
+var spaces = initialPulse.split(100000)
 echo spaces.recombine().totalPulseEnergy
 echo "Took ", (epochTime()-time1)*1000, " milliseconds"
+discard runScript("test.xml")
 echo "Push enter to continue..."
 discard readLine(stdin)
+"""
