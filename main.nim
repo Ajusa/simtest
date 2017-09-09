@@ -17,9 +17,10 @@ proc recombine(spaces: seq[PhaseSpace]): PhaseSpace =
     for i in 0..spaces.len:
         result.totalPulseEnergy += spaces[i].totalPulseEnergy; result.intensityRatio += spaces[i].intensityRatio
         result.vZC += spaces[i].vZC; result.zC += spaces[i].zC
-    result.hWidth = spaces[0].hWidth * spaces.len.float
-    result.hHeight = spaces[0].hHeight * spaces.len.float * (1/result.chirp)
-
+    #result.hWidth = spaces[0].hWidth * spaces.len.float
+    result.hHeight = spaces[0].hHeight * spaces.len.float
+    result.chirp = result.hHeight/result.hWidth
+    result.b = result.chirp * (result.zIntDist*result.zIntDist)/(result.VzIntDist*result.VzIntDist)
 proc getSplitIntensityRatio(s: PhaseSpace, accuracy, numSections, sectionNum, VzIntDistsq, hWidthsq, p, t1, t2: float): float =
         let ySearchLB = -5.803*s.hHeight + ((5.803*s.hHeight*2/numSections)*(sectionNum-1))
         let ySearchUB = 5.803*s.hHeight - (5.803*s.hHeight*2/numSections)*(numSections - sectionNum)
@@ -42,9 +43,10 @@ proc split(s: PhaseSpace, spaces: int): seq[PhaseSpace] =
         let t1 = -1/(2*hWidthsq); let t2 = 1/(2*VzIntDistsq)
         let slope = s.hHeight/s.chirp
         let p = 1/(TAU*(hWidthsq*VzIntDistsq))
+        let newChirp = s.hHeight*spacesD/s.hWidth
         for i in 0 || result.len:
             let intensityRatio = s.getSplitIntensityRatio(1005*spacesD, spaces.float, i.float, VzIntDistsq, hWidthsq, p, t1, t2)
-            result[i] = ((s.hHeight/s.chirp)*spacesD, s.hHeight*spacesD, s.VzIntDist, s.zIntDist, s.chirp, s.b, s.totalPulseEnergy*intensityRatio, intensityRatio,
+            result[i] = (s.hWidth, s.hHeight*spacesD, s.VzIntDist*spacesD, s.zIntDist, newChirp, s.b, s.totalPulseEnergy*intensityRatio, intensityRatio,
                       s.hDepth, s.hDepthVelocity, s.VxIntDist, s.xIntDist, s.chirpT, s.bT, s.hHeight-(s.hHeight*2/spaces.float)*(i.float+0.5), s.hWidth-(s.hWidth*2/spaces.float)*(i.float+0.5))
 proc freeExpansion(s: PhaseSpace, time: float): PhaseSpace = 
     result = s
