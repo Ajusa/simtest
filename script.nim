@@ -12,12 +12,12 @@ proc handleTag(tag: XmlNode, space: PhaseSpace): PhaseSpace =
                 if $op.kind == "xnElement": result = handleTag(op, result)
             echo "Took ", (epochTime()-time1)*1000, " milliseconds"
         of "distance":
-            result = result.freeExpansion(tag.get("dist"))
+            result = result.freeExpansion(tag.get("dist")/164.35)
         of "split":
             var spaces = result.split(tag.attr("portions").parseInt)
-            for s in spaces:
+            for i in 0..spaces.len:
                 for op in tag.items:
-                    if $op.kind == "xnElement": result = handleTag(op, s)
+                    if $op.kind == "xnElement": spaces[i] = handleTag(op, spaces[i])
             result = spaces.recombine
 
 proc runScript(name:string): bool =
